@@ -7,9 +7,9 @@ disqus:
 google-ID: 'UA-112060364-2'
 
 menu:
-- {name: 'First', folder: 'pages', file: 'first.html'}
-- {name: 'Where are we?', folder: 'pages', file: 'where.html'}
 - {name: 'Diary Posts', folder: 'pages', file: 'diary-posts.html'}
+- {name: 'Where are we?', folder: 'pages', file: 'where.html'}
+- {name: 'Other', folder: 'pages', file: 'other.html'}
 - {name: 'Pictures', folder: 'pages', file: 'pictures.html'}
 - {name: 'Acknowledgments', folder: 'pages', file: 'acknowl.html'}
 - {name: 'Contact', folder: 'pages', file: 'contact.html'}
