@@ -3,8 +3,6 @@ layout: misc
 title: Acknowledgments
 ---
 
-<br/><br/><br/><br/>
-
 Thank you to Albert Kim (Smith College) and Johanna Hardin (Pomona College) for the Google
 Calendar project idea. They credit Roger Peng’s and Hilary Parker’s Not So Standard Deviations
 podcast titled [“Compromised Shoe Situation”](http://nssdeviations.com/size/5/?search=shoe "Not So Standard Deviations podcast"), in
