@@ -3,7 +3,7 @@ layout: misc
 title: Other
 ---
 
-# What was on our minds?  
+# What else was on our minds?  
 
 In one homework assignment, students were asked to web scrape quotes from the [Brainy Quote](https://www.brainyquote.com/ "Brainy Quote") website.  What terms did they search?  What quotes did they find?
 
