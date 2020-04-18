@@ -3,6 +3,6 @@ layout: misc
 title: Pictures
 ---
 
-ADD PIC OF F & O
+![Testing Caption](felipe_olivia_treats1.jpg)
 
 INVITE STUDENTS TO ADD PICTURES IF THEY WISH
