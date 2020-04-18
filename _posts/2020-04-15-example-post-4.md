@@ -2,8 +2,8 @@
 layout: post
 title: "Example Post 4"
 author: "Student C"
-categories: sample
-tags: [sample]
+categories: diary
+tags: diary
 image: diary-wimpy-tp2.png
 ---
 
