@@ -3,5 +3,8 @@ layout: misc
 title: Pictures
 ---
 
-[[add picture of F & O by scatterplot]]
-[[invite students to add pictures if they wish]]
+![](felipe_olivia_treats1.png)
+!["Test Caption"](felipe_olivia_treats2.png)
+![](felipe_olivia_treats3.png)
+
+INVITE STUDENTS TO ADD PICTURES IF THEY WISH
