@@ -3,8 +3,17 @@ layout: misc
 title: Pictures
 ---
 
-![](felipe_olivia_treats1.png)
-![Test Caption](felipe_olivia_treats2.png)
-![](felipe_olivia_treats3.png)
+   <div class="featured-image">
+      <img src="{{ site.github.url }}/assets/img/felipe_olivia_treats1.png">
+    </div>
+    <figure>
+      <img src="{{ site.github.url }}/assets/img/felipe_olivia_treats2.png" alt='missing' />
+      <figcaption> Testing Caption </figcaption>
+    </figure>
+    <figure>
+      <img src="{{ site.github.url }}/assets/img/felipe_olivia_treats3.png" alt='missing' />
+      <figcaption> Testing Caption 3</figcaption>
+    </figure>
+
 
 INVITE STUDENTS TO ADD PICTURES IF THEY WISH
