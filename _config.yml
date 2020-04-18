@@ -14,7 +14,7 @@ sass:
   style: :nested
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Diary of a Data Science Class: Cabin Fever During COVID-19"
+title:		           "Diary of a Data Science Student: Cabin Fever During COVID-19"
 description:	       "Amherst College Spring 2020"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
