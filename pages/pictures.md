@@ -3,4 +3,5 @@ layout: misc
 title: Pictures
 ---
 
-[[ add pictures ]] 
+[[add picture of F & O by scatterplot]]
+[[invite students to add pictures if they wish]]
