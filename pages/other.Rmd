@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(readxl)
 library(wordcloud)
+library(ggmap)
 ```
 
 # What else was on our minds?  
@@ -47,7 +48,28 @@ wordcloud(names(tb), as.numeric(tb)
 
 ### Quotes
 
-```{r, comment=NA, message = FALSE}
+```{r}
+quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
+  filter(person != "KAT") %>%
+  mutate(together = paste('"', as.character(quote), '" --'
+                          , as.character(person), sep=""))
+
+colors_vec <- c("#2a2d48", "#bdbec6", "#9689e6", "#4b55ad", "#707186")
+
+ggplot() + 
+  annotate("text",  size = 6, x = 7.2, y = 42
+              , label = quotes0[31,"together"]
+              , color = sample(colors_vec, size=1)) +
+  theme_void()
+
+ggplot() + 
+  annotate("text",  size = 6, x = 7.2, y = 42
+              , label = quotes0[418,"together"]
+              , color = sample(colors_vec, size=1)) +
+  theme_void()
+```
+
+```{r OLD, eval = FALSE, include = FALSE, comment=NA, message = FALSE}
 #devtools::install_github("kbodwin/demoR")
 #library(demoR)
 
@@ -59,11 +81,12 @@ library("crayon")
 #test <- make_style(rgb(.42,.45,.72))
 #test2 <- make_style(rgb(.42,.45,.4))
 #cat(fancy("This will have some fancy colors"), "\n")
-#cat(color4("Test"))
+#cat(color5("Test"))
 color1 <- make_style(rgb(0,.2,.4))
 color2 <- make_style(rgb(0.4,0,.4))
 color3 <- make_style(rgb(0,0,0.6))
 color4 <- make_style(rgb(0.8,0.6,0.4))
+color5 <- make_style(rgb(0.65,	0.26,	0.22))
 
 quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
   filter(person != "KAT") %>%
