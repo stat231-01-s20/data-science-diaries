@@ -1,3 +1,5 @@
+# Where are we?
+
 ![](where_files/figure-markdown_strict/unnamed-chunk-1-1.png)![](where_files/figure-markdown_strict/unnamed-chunk-1-2.png)
 
 ### What's the temperature where we are? Using Google's BigQuery API
