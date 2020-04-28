@@ -48,6 +48,73 @@ wordcloud(names(tb), as.numeric(tb)
 ### Quotes
 
 ```{r}
+library(ggrepel)
+
+quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
+  filter(person != "KAT") %>%
+  mutate(length = str_length(quote)
+         , together = paste('"', as.character(quote), '" --'
+                          , as.character(person), sep="")
+         , quote = as.character(quote)
+         , person = as.character(person)) %>%
+  select(-X) %>%
+  distinct()
+
+search_vec <- as.character(unique(quotes0$search_term))
+color_vecs <- data.frame(palette = rep(c(1:5), each=5)
+                          , hexcode = as.character(c(
+                              # Renewal theme
+                              c("#2a2d48", "#bdbec6", "#9689e6", "#4b55ad", "#707186")
+                              # AK stara strona
+                              , c("#24a6b4", "#009cb2", "#007f9f", "#363636", "#434343")
+                              # color supersport #1
+                              , c("#00ceff", "#313036", "#ffb787", "#ff4133", "#96abff")
+                              # Siahara Shyne Carter Old School
+                              , c("#b98888", "#f16e6e", "#83c9b5", "#9a9db3", "#c4b8b1")
+                              # fire to ice
+                              , c("#12b84f", "#0d579b", "#4f5b96", "#4c3d79", "#643f7d"))))
+
+set.seed(20200428)
+for (i in 1:length(search_vec)){
+
+  color_palette0 <- color_vecs %>% 
+      filter(palette == (i%%5 + 1))
+    
+  color_palette <- as.character(color_palette0$hexcode)
+ 
+  quotes_subset0 <- quotes0 %>%
+    filter(search_term == search_vec[i]) %>%
+    arrange(length) %>%
+    slice(1:6) %>%
+    mutate(x = row_number()*10
+           , y = 100 - row_number()*10)
+
+  quotes_subset <- quotes_subset0 %>%
+           mutate(colorch = sample(color_palette, size = nrow(quotes_subset0)
+                                   , replace = TRUE)
+                 , sizech = sample(3:6, size = nrow(quotes_subset0)
+                                    , replace = TRUE))
+ 
+  plot <- ggplot() + 
+      ylim(0,100) +
+      xlim(0,100) +
+      ggtitle(str_to_title(search_vec[i])) + 
+      geom_text_repel(data=quotes_subset
+                        , aes(x = x, y = y
+                              , label=paste0('"', quote, '"')
+                              , color = colorch
+                              , size = sizech)) +
+      theme_void() + 
+      theme(plot.title = element_text(size = 30, face = "bold"
+                                      , color = sample(color_palette, size=1))
+            , legend.position = "none") 
+  
+  print(plot)
+}
+```
+
+
+```{r OLD, eval = FALSE, include = FALSE}
 quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
   filter(person != "KAT") %>%
   mutate(length = str_length(quote)
@@ -102,36 +169,3 @@ for (i in 1:length(search_vec)){
 }
 
 ```
-
-```{r OLD, eval = FALSE, include = FALSE, comment=NA, message = FALSE}
-#devtools::install_github("kbodwin/demoR")
-#library(demoR)
-
-library("crayon")
-
-#ivory <- make_style("ivory")
-#bgMaroon <- make_style("maroon", bg = TRUE)
-#fancy <- combine_styles(ivory, bgMaroon)
-#test <- make_style(rgb(.42,.45,.72))
-#test2 <- make_style(rgb(.42,.45,.4))
-#cat(fancy("This will have some fancy colors"), "\n")
-#cat(color5("Test"))
-color1 <- make_style(rgb(0,.2,.4))
-color2 <- make_style(rgb(0.4,0,.4))
-color3 <- make_style(rgb(0,0,0.6))
-color4 <- make_style(rgb(0.8,0.6,0.4))
-color5 <- make_style(rgb(0.65,	0.26,	0.22))
-
-quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
-  filter(person != "KAT") %>%
-  mutate(together = paste('"', as.character(quote), '" --'
-                          , as.character(person), sep=""))
-
-for (i in 1:length(quotes0$together)){
-  if (i%%3 == 1){cat(color1(quotes0$together[i], "\n \n"))}
-  if (i%%3 == 2){cat(color2(quotes0$together[i], "\n \n"))}
-  if (i%%3 == 0){cat(color3(quotes0$together[i], "\n \n"))}
-
-} 
-```
-
