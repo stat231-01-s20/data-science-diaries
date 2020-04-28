@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(readxl)
 library(wordcloud)
+library(ggrepel)
 ```
 
 # What else was on our minds?  
@@ -48,8 +49,6 @@ wordcloud(names(tb), as.numeric(tb)
 ### Quotes
 
 ```{r}
-library(ggrepel)
-
 quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
   filter(person != "KAT") %>%
   mutate(length = str_length(quote)
@@ -59,6 +58,8 @@ quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Sprin
          , person = as.character(person)) %>%
   select(-X) %>%
   distinct()
+
+# quotes0 %>% summarize(max(length))
 
 search_vec <- as.character(unique(quotes0$search_term))
 color_vecs <- data.frame(palette = rep(c(1:5), each=5)
@@ -92,7 +93,7 @@ for (i in 1:length(search_vec)){
   quotes_subset <- quotes_subset0 %>%
            mutate(colorch = sample(color_palette, size = nrow(quotes_subset0)
                                    , replace = TRUE)
-                 , sizech = sample(3:6, size = nrow(quotes_subset0)
+                 , sizech = sample(4:6, size = nrow(quotes_subset0)
                                     , replace = TRUE))
  
   plot <- ggplot() + 
@@ -102,8 +103,11 @@ for (i in 1:length(search_vec)){
       geom_text_repel(data=quotes_subset
                         , aes(x = x, y = y
                               , label=paste0('"', quote, '"')
-                              , color = colorch
-                              , size = sizech)) +
+                              , color = colorch)
+                              #, box.padding = 2
+                              , seed = i
+                              , segment.alpha = 0) +
+                              #, size = sizech)) +
       theme_void() + 
       theme(plot.title = element_text(size = 30, face = "bold"
                                       , color = sample(color_palette, size=1))
