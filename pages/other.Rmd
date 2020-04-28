@@ -47,12 +47,21 @@ wordcloud(names(tb), as.numeric(tb)
 
 ### Quotes
 
-```{r}
+<span style="color: #4b55ad;">
+
+```{r, comment=NA}
+#devtools::install_github("kbodwin/demoR")
+#library(demoR)
+
 quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
   filter(person != "KAT") %>%
   mutate(together = paste('"', as.character(quote), '" --'
                           , as.character(person), sep=""))
 
-cat(quotes0$together, "\n")
+for (i in 1:length(quotes0$together)){
+  cat(quotes0$together[i], "\n \n")   
+}
+
 ```
 
+</span>
