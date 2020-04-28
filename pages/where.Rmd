@@ -16,8 +16,6 @@ register_google(key)
 has_google_key()
 ```
 
-# Where are we?
-
 ```{r, echo=FALSE}
 # Get the world polygon
 world <- map_data("world")
@@ -39,12 +37,12 @@ ggplot() +
   #coord_map() +
   theme(legend.position="none")
 
-# third graphic 
+# USA
 usa <- map_data("usa") 
 
 ggplot() + 
   geom_polygon(data = usa, aes(x=long, y = lat, group = group)
-               , alpha = 0.3) + 
+               , alpha = 0.2) + 
   coord_fixed(1.3) +
   geom_point(data = where %>% filter(place2 != "Nairobi, Kenya" &
                                        place2 != "New Dehli, India")

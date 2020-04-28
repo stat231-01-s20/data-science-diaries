@@ -1,6 +1,3 @@
-Where are we?
-=============
-
 ![](where_files/figure-markdown_strict/unnamed-chunk-1-1.png)![](where_files/figure-markdown_strict/unnamed-chunk-1-2.png)
 
 ### What's the temperature where we are? Using Google's BigQuery API
@@ -14,6 +11,7 @@ month in their location.
 
 Here is similar plot for the class, grouping by each of the different
 weather stations we searched.
+
 
 ![](where_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
