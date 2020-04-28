@@ -28,21 +28,11 @@ where <- read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2
 ggplot() +
   geom_polygon(data = world, aes(x=long, y = lat, group = group)
                , fill="grey", alpha=0.3) +
-  geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
-  theme_void() +
-  ylim(-60,80) +
-  coord_fixed() 
-
- 
-# Second graphic 
-ggplot() +
-  geom_polygon(data = world, aes(x=long, y = lat, group = group)
-               , fill="grey", alpha=0.3) +
   #geom_point(data = where, aes(x=lon, y=lat, alpha=num)) +
   geom_text_repel(data = where %>% filter(place2 %in% c("Nairobi, Kenya"
                                                         , "New Dehli, India"))
                   , aes(x=lon, y=lat, label=place2)
-                  , size=2) +
+                  , size=3) +
   geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
   theme_void() + 
   #ylim(50,59) + 
@@ -62,7 +52,7 @@ ggplot() +
  geom_text_repel(data = where %>% filter(place2 != "Nairobi, Kenya" &
                                        place2 != "New Dehli, India")
                   , aes(x=lon, y=lat, label=place2)
-                  , size=2) +
+                  , size=3) +
   theme_void()
 
 ```
@@ -70,7 +60,9 @@ ggplot() +
 
 ### What's the temperature where we are?  Using Google's BigQuery API
 
-In one homework assignment, students connected to [Google's BigQuery API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data") to access a public dataset containing weather information collected by NOAA.  They identified a weather station in the state or country in which they were currently residing, and plotted the average temperature by month in their location.
+In one homework assignment, students connected to [Google's BigQuery API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data") to access a public dataset containing weather information collected by NOAA.  They identified a weather station in the state or country in which they were currently residing, and plotted the average temperature by month in their location.  
+
+Here is similar plot for the class, grouping by each of the different weather stations we searched. 
 
 ```{r, echo=FALSE, warning = FALSE, message = FALSE}
 library(bigrquery)  
