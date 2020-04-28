@@ -1,7 +1,4 @@
-Where are we?
-=============
-
-\[\[include map identifying where students are learning remotely\]\] \\
+![](where_files/figure-markdown_strict/unnamed-chunk-1-1.png)![](where_files/figure-markdown_strict/unnamed-chunk-1-2.png)![](where_files/figure-markdown_strict/unnamed-chunk-1-3.png)
 
 ### What's the temperature where we are? Using Google's BigQuery API
 

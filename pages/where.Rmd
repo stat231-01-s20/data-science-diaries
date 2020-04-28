@@ -6,28 +6,67 @@ output: md_document
 
 ```{r, setup, include=FALSE}
 library(tidyverse)
+library(maps)
+library(ggmap)
+library(ggrepel)
+
+key <- readLines("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/R Labs/apikey.txt")
+register_google(key)
+has_google_key()
 ```
 
+
+```{r, echo=FALSE}
+# Get the world polygon
+world <- map_data("world")
+
+# get the data on where everyone is
+where <- read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/where.csv")
+
+ggplot() +
+  geom_polygon(data = world, aes(x=long, y = lat, group = group)
+               , fill="grey", alpha=0.3) +
+  geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
+  theme_void() + 
+  #ylim(-55,70) + 
+  coord_map() 
+
+ggplot() +
+  geom_polygon(data = world, aes(x=long, y = lat, group = group)
+               , fill="grey", alpha=0.3) +
+  geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
+  theme_void() + 
+  ylim(-55,70) + 
+  coord_map() 
+ 
+# Second graphic with names of the 10 biggest cities
+ggplot() +
+  geom_polygon(data = world, aes(x=long, y = lat, group = group)
+               , fill="grey", alpha=0.3) +
+  #geom_point(data = where, aes(x=lon, y=lat, alpha=num)) +
+  geom_text_repel(data = where, aes(x=lon, y=lat, label=place2)
+                  , size=2) +
+  geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
+  theme_void() + 
+  #ylim(50,59) + 
+  #coord_map() +
+  theme(legend.position="none")
+```
+
+
+### What's the temperature where we are?  Using Google's BigQuery API
+
+In one homework assignment, students connected to [Google's BigQuery API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data") to access a public dataset containing weather information collected by NOAA.  They identified a weather station in the state or country in which they were currently residing, and plotted the average temperature by month in their location.
 
 ```{r, include=FALSE}
 library(bigrquery)  
 library(DBI)
 options(gargle_quiet = FALSE)
 
-# change XXXX to the name of your json file that is stored in the same folder as this .Rmd file
 bq_auth(path = "Stat231-Lab9b-Test-0d94d10c3b24.json")  
-
-# change YYYY to your project id 
 myproject <- "stat231-lab9b-test" 
 ```
 
-# Where are we?
-
-[[include map identifying where students are learning remotely]] \\
-
-### What's the temperature where we are?  Using Google's BigQuery API
-
-In one homework assignment, students connected to [Google's BigQuery API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data") to access a public dataset containing weather information collected by NOAA.  They identified a weather station in the state or country in which they were currently residing, and plotted the average temperature by month in their location.
 
 [[include figure that is overlays of students submission on temperature by month in their location from PS5]]
 [[note the range in avg. temps for April/current month]]
