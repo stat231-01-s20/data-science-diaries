@@ -1,0 +1,56 @@
+---
+layout: misc
+title: Other
+output: md_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+library(readxl)
+library(wordcloud)
+```
+
+# What else was on our minds?  
+
+In one homework assignment, students were asked to web scrape quotes from the [Brainy Quote](https://www.brainyquote.com/ "Brainy Quote") website.  What terms did we search?  What quotes did we find?
+
+### Searched terms
+
+```{r}
+Stat231_PS5_info <- read_excel("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/Stat231_PS5_info.xlsx") 
+
+Stat231_PS5_info2 <- Stat231_PS5_info %>%
+  filter(is.na(Quote_Search)==FALSE & str_detect(Quote_Search, "NONE") == FALSE)
+
+tb <- table(Stat231_PS5_info2$Quote_Search)
+
+wordcloud(names(tb), as.numeric(tb)
+          #, min.freq=20
+          #, max.words=50
+          # plot the words in a random order
+          , random.order=T
+          # specify the range of the size of the words
+          , scale=c(2,0.3)
+          # specify proportion of words with 90 degree rotation
+          , rot.per=.15
+          # colors words from least to most frequent
+          # blues
+          , colors = c("#2171b5","#6baed6","#aaaaaa", "#000066", "#00004c")
+          # font family
+          , family="sans")
+          #, vfont = c("sans serif", "plain"))
+```
+
+
+### Quotes
+
+```{r}
+quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
+  filter(person != "KAT") %>%
+  select(person, quote)
+
+DT::datatable(quotes0)
+```
+

@@ -1,14 +1,14 @@
----
-layout: misc
-title: Other
----
+What else was on our minds?
+===========================
 
-# What else was on our minds?  
-
-In one homework assignment, students were asked to web scrape quotes from the [Brainy Quote](https://www.brainyquote.com/ "Brainy Quote") website.  What terms did we search?  What quotes did we find?
+In one homework assignment, students were asked to web scrape quotes
+from the [Brainy Quote](https://www.brainyquote.com/ "Brainy Quote")
+website. What terms did we search? What quotes did we find?
 
 ### Searched terms
-[[include word cloud of the terms searched]]
+
+![](other_files/figure-markdown_strict/unnamed-chunk-1-1.png)
 
 ### Quotes
-[[include list of quotes returned by searched term]]
+
+![](other_files/figure-markdown_strict/unnamed-chunk-2-1.png)
