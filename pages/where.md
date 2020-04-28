@@ -1,4 +1,4 @@
-# Where are we?
+## Where are we?
 
 ![](where_files/figure-markdown_strict/unnamed-chunk-1-1.png)![](where_files/figure-markdown_strict/unnamed-chunk-1-2.png)
 
@@ -17,7 +17,8 @@ weather stations we searched.
 
 ![](where_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
-<center>
+<p style="text-align:center">
+  
 Dear March - Come in  
 by Emily Dickinson
 
@@ -51,4 +52,4 @@ As soon as you have come
 That blame is just as dear as Praise  
 And Praise as mere as Blame -
 
-</center>
+</p>
