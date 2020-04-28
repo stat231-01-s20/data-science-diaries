@@ -6,6 +6,7 @@ output: md_document
 
 ```{r, setup, include=FALSE}
 library(tidyverse)
+library(readxl)
 library(maps)
 library(ggmap)
 library(ggrepel)
@@ -27,17 +28,14 @@ ggplot() +
   geom_polygon(data = world, aes(x=long, y = lat, group = group)
                , fill="grey", alpha=0.3) +
   geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
-  theme_void() + 
-  #ylim(-55,70) + 
-  coord_map() 
+  theme_void() 
 
 ggplot() +
   geom_polygon(data = world, aes(x=long, y = lat, group = group)
                , fill="grey", alpha=0.3) +
   geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
   theme_void() + 
-  ylim(-55,70) + 
-  coord_map() 
+  ylim(-55,70) 
  
 # Second graphic with names of the 10 biggest cities
 ggplot() +
@@ -65,8 +63,94 @@ options(gargle_quiet = FALSE)
 
 bq_auth(path = "Stat231-Lab9b-Test-0d94d10c3b24.json")  
 myproject <- "stat231-lab9b-test" 
+
+Stat231_PS5_info <- read_excel("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/Stat231_PS5_info.xlsx") 
+
+stations <- Stat231_PS5_info %>%
+  filter(is.na(Station_Number)==FALSE) %>%
+  select(Station_Number)
+
+# use the dbConnect command to establish the connection with Google's sample datasets
+con <- dbConnect( 
+  bigrquery::bigquery(),
+  project = "publicdata",
+  dataset = "samples",
+  billing = myproject
+)
+
+#stations$Station_Number
+
+# getting average temp by month for locations since 2000
+query_stations <- bq_project_query(x = myproject
+                    , query = "SELECT station_number, month
+                                           , AVG(mean_temp) as avg_mean_temp
+                                           , MIN(year) as first_year
+                                           , MAX(year) as last_year
+                               FROM `publicdata.samples.gsod` 
+                               WHERE station_number IN (725060, 727730, 744910, 725033
+                                                        , 722930, 720576, 994046, 744104
+                                                        , 99406, 999999, 745090, 994046 
+                                                        , 725080, 725035, 637410, 722789
+                                                        , 724094, 724077, 997290, 726986)
+                                              AND year > 2000
+                               GROUP BY station_number, month
+                               ORDER BY month")   
+
+temperature_stations <- bq_table_download(query_stations)
+
+# plotting average temp by month for the diff stations
+ggplot(data = temperature_stations, aes(x = month, y = avg_mean_temp
+                                        , group = as.factor(station_number)
+                                        , color = as.factor(station_number))) +
+  geom_line() + 
+  geom_point() +
+  labs(x="Month", y = "Average temperature (Fahrenheit)"
+       , title = "Average temperature across our locations, 2000 - 2010") +
+  scale_x_continuous(breaks=c(1:12)) +
+  annotate("rect", xmin = 3.5, xmax = 5.3, ymin = 35, ymax = 85, alpha = .2) +
+  geom_curve(x = 5, xend = 6, y = 40, yend = 42, color = "black"
+             , arrow = arrow(length = unit(0.2,"cm")), curvature = 0) +
+  annotate("text", size = 3, x = 7.2, y = 42, label = "The days should be \n getting warmer for most \n of us!") +
+  theme(legend.position = "none")
+```
+
+```{r, include=FALSE}
+temperature_stations %>% 
+  filter(month==4) %>% 
+  summarize(min = min(avg_mean_temp), max = max(avg_mean_temp)
+            , median = median(avg_mean_temp))
 ```
 
 
-[[include figure that is overlays of students submission on temperature by month in their location from PS5]]
-[[note the range in avg. temps for April/current month]]
+Dear March - Come in 
+Emily Dickinson
+
+Dear March - Come in -
+How glad I am -
+I hoped for you before -
+Put down your Hat -
+You must have walked -
+How out of Breath you are -
+Dear March, how are you, and the Rest -
+Did you leave Nature well -
+Oh March, Come right upstairs with me -
+I have so much to tell -
+
+I got your Letter, and the Birds -
+The Maples never knew that you were coming -
+I declare - how Red their Faces grew -
+But March, forgive me -
+And all those Hills you left for me to Hue -
+There was no Purple suitable -
+You took it all with you -
+
+Who knocks? That April -
+Lock the Door -
+I will not be pursued -
+He stayed away a Year to call
+When I am occupied -
+But trifles look so trivial
+As soon as you have come
+
+That blame is just as dear as Praise
+And Praise as mere as Blame -
