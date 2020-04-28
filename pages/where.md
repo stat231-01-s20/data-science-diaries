@@ -1,3 +1,5 @@
+## Where are we?
+
 ![](where_files/figure-markdown_strict/unnamed-chunk-1-1.png)![](where_files/figure-markdown_strict/unnamed-chunk-1-2.png)
 
 ### What's the temperature where we are? Using Google's BigQuery API
@@ -15,6 +17,8 @@ weather stations we searched.
 
 ![](where_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
+<p style="text-align:center">
+  
 Dear March - Come in  
 by Emily Dickinson
 
@@ -47,3 +51,5 @@ As soon as you have come
 
 That blame is just as dear as Praise  
 And Praise as mere as Blame -
+
+</p>
