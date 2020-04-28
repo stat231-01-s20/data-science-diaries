@@ -28,27 +28,42 @@ ggplot() +
   geom_polygon(data = world, aes(x=long, y = lat, group = group)
                , fill="grey", alpha=0.3) +
   geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
-  theme_void() 
+  theme_void() +
+  ylim(-60,80) +
+  coord_fixed() 
 
-ggplot() +
-  geom_polygon(data = world, aes(x=long, y = lat, group = group)
-               , fill="grey", alpha=0.3) +
-  geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
-  theme_void() + 
-  ylim(-55,70) 
  
-# Second graphic with names of the 10 biggest cities
+# Second graphic 
 ggplot() +
   geom_polygon(data = world, aes(x=long, y = lat, group = group)
                , fill="grey", alpha=0.3) +
   #geom_point(data = where, aes(x=lon, y=lat, alpha=num)) +
-  geom_text_repel(data = where, aes(x=lon, y=lat, label=place2)
+  geom_text_repel(data = where %>% filter(place2 %in% c("Nairobi, Kenya"
+                                                        , "New Dehli, India"))
+                  , aes(x=lon, y=lat, label=place2)
                   , size=2) +
   geom_point(data = where, aes(x=lon, y=lat), color="#4A235A") +
   theme_void() + 
   #ylim(50,59) + 
   #coord_map() +
   theme(legend.position="none")
+
+# third graphic 
+usa <- map_data("usa") 
+
+ggplot() + 
+  geom_polygon(data = usa, aes(x=long, y = lat, group = group)
+               , alpha = 0.3) + 
+  coord_fixed(1.3) +
+  geom_point(data = where %>% filter(place2 != "Nairobi, Kenya" &
+                                       place2 != "New Dehli, India")
+             , aes(x=lon, y=lat), color="#4A235A") +
+ geom_text_repel(data = where %>% filter(place2 != "Nairobi, Kenya" &
+                                       place2 != "New Dehli, India")
+                  , aes(x=lon, y=lat, label=place2)
+                  , size=2) +
+  theme_void()
+
 ```
 
 
@@ -56,7 +71,7 @@ ggplot() +
 
 In one homework assignment, students connected to [Google's BigQuery API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data") to access a public dataset containing weather information collected by NOAA.  They identified a weather station in the state or country in which they were currently residing, and plotted the average temperature by month in their location.
 
-```{r, include=FALSE}
+```{r, echo=FALSE, warning = FALSE, message = FALSE}
 library(bigrquery)  
 library(DBI)
 options(gargle_quiet = FALSE)
@@ -127,9 +142,9 @@ Emily Dickinson
 
 Dear March - Come in -
 How glad I am -
-I hoped for you before -
-Put down your Hat -
-You must have walked -
+I hoped for you before -  
+Put down your Hat -  
+You must have walked -  
 How out of Breath you are -
 Dear March, how are you, and the Rest -
 Did you leave Nature well -

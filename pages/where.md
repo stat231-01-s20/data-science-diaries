@@ -9,12 +9,38 @@ NOAA. They identified a weather station in the state or country in which
 they were currently residing, and plotted the average temperature by
 month in their location.
 
+    ## trying token_fetch()
+    ## trying credentials_service_account()
+    ## Error: lexical error: invalid char in json text.
+    ##                                        Stat231-Lab9b-Test-0d94d10c3b24
+    ##                      (right here) ------^
+    ## 
+    ## trying credentials_app_default()
+    ## trying credentials_gce()
+    ## trying credentials_byo_oauth()
+    ## Error: inherits(token, "Token2.0") is not TRUE
+    ## trying credentials_user_oauth2()
+    ## Gargle2.0 initialize
+    ## attempt from: bigrquery
+    ## adding 'userinfo.email' scope
+    ## loading token from the cache
+    ## Using an auto-discovered, cached token.
+    ## To suppress this message, modify your code or options to clearly consent to the use of a cached token.
+    ## See gargle's "Non-interactive auth" vignette for more details:
+    ## https://gargle.r-lib.org/articles/non-interactive-auth.html
+    ## The bigrquery package is using a cached token for kcorreia@amherst.edu.
+    ## matching token found in the cache
+
+![](where_files/figure-markdown_strict/unnamed-chunk-2-1.png)
+
 Dear March - Come in Emily Dickinson
 
-Dear March - Come in - How glad I am - I hoped for you before - Put down
-your Hat - You must have walked - How out of Breath you are - Dear
-March, how are you, and the Rest - Did you leave Nature well - Oh March,
-Come right upstairs with me - I have so much to tell -
+Dear March - Come in - How glad I am - I hoped for you before -  
+Put down your Hat -  
+You must have walked -  
+How out of Breath you are - Dear March, how are you, and the Rest - Did
+you leave Nature well - Oh March, Come right upstairs with me - I have
+so much to tell -
 
 I got your Letter, and the Birds - The Maples never knew that you were
 coming - I declare - how Red their Faces grew - But March, forgive me -
