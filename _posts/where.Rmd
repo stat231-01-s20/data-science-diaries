@@ -1,0 +1,33 @@
+---
+layout: misc
+title: Where are we?
+output: md_document
+---
+
+```{r, setup, include=FALSE}
+library(tidyverse)
+```
+
+
+```{r, include=FALSE}
+library(bigrquery)  
+library(DBI)
+options(gargle_quiet = FALSE)
+
+# change XXXX to the name of your json file that is stored in the same folder as this .Rmd file
+bq_auth(path = "Stat231-Lab9b-Test-0d94d10c3b24.json")  
+
+# change YYYY to your project id 
+myproject <- "stat231-lab9b-test" 
+```
+
+# Where are we?
+
+[[include map identifying where students are learning remotely]] \\
+
+### What's the temperature where we are?  Using Google's BigQuery API
+
+In one homework assignment, students connected to [Google's BigQuery API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data") to access a public dataset containing weather information collected by NOAA.  They identified a weather station in the state or country in which they were currently residing, and plotted the average temperature by month in their location.
+
+[[include figure that is overlays of students submission on temperature by month in their location from PS5]]
+[[note the range in avg. temps for April/current month]]
