@@ -10,7 +10,6 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(readxl)
 library(wordcloud)
-library(ggmap)
 ```
 
 # What else was on our minds?  
@@ -51,22 +50,57 @@ wordcloud(names(tb), as.numeric(tb)
 ```{r}
 quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
   filter(person != "KAT") %>%
-  mutate(together = paste('"', as.character(quote), '" --'
-                          , as.character(person), sep=""))
+  mutate(length = str_length(quote)
+         , together = paste('"', as.character(quote), '" --'
+                          , as.character(person), sep="")
+         , quote = as.character(quote)
+         , person = as.character(person)) 
 
-colors_vec <- c("#2a2d48", "#bdbec6", "#9689e6", "#4b55ad", "#707186")
+search_vec <- as.character(unique(quotes0$search_term))
+color_vecs <- data.frame(palette = rep(c(1:5), each=5)
+                          , hexcode = as.character(c(
+                              # Renewal theme
+                              c("#2a2d48", "#bdbec6", "#9689e6", "#4b55ad", "#707186")
+                              # AK stara strona
+                              , c("#24a6b4", "#009cb2", "#007f9f", "#363636", "#434343")
+                              # color supersport #1
+                              , c("#00ceff", "#313036", "#ffb787", "#ff4133", "#96abff")
+                              # Siahara Shyne Carter Old School
+                              , c("#b98888", "#f16e6e", "#83c9b5", "#9a9db3", "#c4b8b1")
+                              # fire to ice
+                              , c("#12b84f", "#0d579b", "#4f5b96", "#4c3d79", "#643f7d"))))
 
-ggplot() + 
-  annotate("text",  size = 6, x = 7.2, y = 42
-              , label = quotes0[31,"together"]
-              , color = sample(colors_vec, size=1)) +
-  theme_void()
+set.seed(20200428)
+for (i in 1:length(search_vec)){
+  quotes_subset <- quotes0 %>%
+    filter(search_term == search_vec[i]) %>%
+    arrange(length) %>%
+    slice(1:6)
+  
+  color_palette0 <- color_vecs %>% 
+    filter(palette == (i%%5 + 1))
+  
+  color_palette <- as.character(color_palette0$hexcode)
+  
+  plot <- ggplot() + 
+    ylim(0,100) +
+    xlim(0,100) +
+    ggtitle(str_to_title(search_vec[i])) + 
+    theme_void() + 
+    theme(plot.title = element_text(size = 30, face = "bold"
+                                    , color = sample(color_palette, size=1)))
+  for (j in 1:nrow(quotes_subset)){
+    plot <- plot +
+       annotate("text",  size = sample(3:6, size=1)
+                , x = sample(10:90, size=1)
+                , y = sample(10:90, size=1)
+                , label = paste0('"', quotes_subset[j, "quote"], '"')
+                , color = sample(color_palette, size=1))
+  }    
 
-ggplot() + 
-  annotate("text",  size = 6, x = 7.2, y = 42
-              , label = quotes0[418,"together"]
-              , color = sample(colors_vec, size=1)) +
-  theme_void()
+  print(plot)
+}
+
 ```
 
 ```{r OLD, eval = FALSE, include = FALSE, comment=NA, message = FALSE}
