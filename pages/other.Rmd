@@ -18,21 +18,22 @@ In one homework assignment, students were asked to web scrape quotes from the [B
 
 ### Searched terms
 
-```{r}
+```{r, message=FALSE, warning = FALSE, fig.width = 8, fig.height = 8}
 Stat231_PS5_info <- read_excel("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/Stat231_PS5_info.xlsx") 
 
 Stat231_PS5_info2 <- Stat231_PS5_info %>%
   filter(is.na(Quote_Search)==FALSE & str_detect(Quote_Search, "NONE") == FALSE)
 
-tb <- table(Stat231_PS5_info2$Quote_Search)
+tb <- table(c(Stat231_PS5_info2$Quote_Search, "winston churchill", "resilience"))
 
+set.seed(15)
 wordcloud(names(tb), as.numeric(tb)
           #, min.freq=20
           #, max.words=50
           # plot the words in a random order
           , random.order=T
           # specify the range of the size of the words
-          , scale=c(2,0.3)
+          , scale=c(4,2)
           # specify proportion of words with 90 degree rotation
           , rot.per=.15
           # colors words from least to most frequent
@@ -49,8 +50,9 @@ wordcloud(names(tb), as.numeric(tb)
 ```{r}
 quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
   filter(person != "KAT") %>%
-  select(person, quote)
+  mutate(together = paste('"', as.character(quote), '" --'
+                          , as.character(person), sep=""))
 
-DT::datatable(quotes0)
+cat(quotes0$together, "\n")
 ```
 
