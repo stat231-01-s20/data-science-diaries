@@ -47,11 +47,23 @@ wordcloud(names(tb), as.numeric(tb)
 
 ### Quotes
 
-<span style="color: #4b55ad;">
-
-```{r, comment=NA}
+```{r, comment=NA, message = FALSE}
 #devtools::install_github("kbodwin/demoR")
 #library(demoR)
+
+library("crayon")
+
+#ivory <- make_style("ivory")
+#bgMaroon <- make_style("maroon", bg = TRUE)
+#fancy <- combine_styles(ivory, bgMaroon)
+#test <- make_style(rgb(.42,.45,.72))
+#test2 <- make_style(rgb(.42,.45,.4))
+#cat(fancy("This will have some fancy colors"), "\n")
+#cat(color4("Test"))
+color1 <- make_style(rgb(0,.2,.4))
+color2 <- make_style(rgb(0.4,0,.4))
+color3 <- make_style(rgb(0,0,0.6))
+color4 <- make_style(rgb(0.8,0.6,0.4))
 
 quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/all_quotes.csv") %>%
   filter(person != "KAT") %>%
@@ -59,9 +71,10 @@ quotes0 <-  read.csv("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Sprin
                           , as.character(person), sep=""))
 
 for (i in 1:length(quotes0$together)){
-  cat(quotes0$together[i], "\n \n")   
-}
+  if (i%%3 == 1){cat(color1(quotes0$together[i], "\n \n"))}
+  if (i%%3 == 2){cat(color2(quotes0$together[i], "\n \n"))}
+  if (i%%3 == 0){cat(color3(quotes0$together[i], "\n \n"))}
 
+} 
 ```
 
-</span>

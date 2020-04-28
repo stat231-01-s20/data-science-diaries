@@ -11,8 +11,6 @@ website. What terms did we search? What quotes did we find?
 
 ### Quotes
 
-<span style="color: #4b55ad;">
-
     "Associate with men of good quality if you esteem your own reputation; for it is better to be alone than in bad company." --George Washington 
      
     "A man can be himself only so long as he is alone, and if he does not love solitude, he will not love freedom, for it is only when he is alone that he is really free." --Arthur Schopenhauer 
@@ -929,7 +927,4 @@ website. What terms did we search? What quotes did we find?
      
     "My first ever interview for 'Blue Peter' was a film with JK Rowling." --Konnie Huq 
      
-    "I write adult fiction, but a good 40 to 50 per cent of my readers are teenagers. I love that if they have to grow up and move past JK Rowling they can move to me. From Jo to Jodi!" --Jodi Picoult 
-     
-
-</span>
+    "I write adult fiction, but a good 40 to 50 per cent of my readers are teenagers. I love that if they have to grow up and move past JK Rowling they can move to me. From Jo to Jodi!" --Jodi Picoult
