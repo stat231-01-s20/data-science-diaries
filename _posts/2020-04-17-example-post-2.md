@@ -15,4 +15,4 @@ This diary is dedicated to answering the basic question: “how do I spend my ti
 
 For 14 days straight, I used Google Calendar to schedule my time. I primarily used two different calendars, my intended schedule, and my real schedule. More specifically, at the end of each day, I made a schedule of the tasks that I intended to do the next day, and when I intended to do them. Then, during the days, I would record what I actually did in a separate scheudule.
 
-. . . Click [here](https://brichards21.github.io/calendar-project/ "Breanna Richards") to Breanna's web page to read the rest of her diary entry (and see some fun visualizations)!
+. . . Visit [Breanna's web page here](https://brichards21.github.io/calendar-project/ "Breanna Richards"){:target="_blank"} to read the rest of her diary entry (and see some fun visualizations)!
