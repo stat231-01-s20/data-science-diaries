@@ -12,4 +12,4 @@ Among the many changes and challenges of remote learning, Isabelle focuses on on
 - How did I divide my time before and after the shift to learning among my academics and other activities?  
 - How has the change in timezone change the way in which I schedule my time between the morning and the evening? 
 
-Visit [Isabelle's web page here](https://brichards21.github.io/calendar-project/ "Isabelle Lobo"){:target="_blank"} to learn what she discovered about her time (and chuckle at some fun memes along the way)!
+Visit [Isabelle's web page here](https://ilobo22-ac.github.io/calendar-project/ "Isabelle Lobo"){:target="_blank"} to learn what she discovered about her time (and chuckle at some fun memes along the way)!
