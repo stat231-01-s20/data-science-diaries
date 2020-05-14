@@ -4,7 +4,7 @@ title: Acknowledgments
 ---
 
 Thank you to Albert Kim (Smith College) and Johanna Hardin (Pomona College) for the Google
-Calendar assignment idea. They credit Roger Peng’s and Hilary Parker’s Not So Standard Deviations
+Calendar [assignment idea](https://arxiv.org/pdf/2002.11767.pdf 'Playing the whole game”: A data collection and analysis exercise with Google Calendar'){:target="_blank"}. They credit Roger Peng’s and Hilary Parker’s Not So Standard Deviations
 podcast titled [“Compromised Shoe Situation”](http://nssdeviations.com/size/5/?search=shoe "Not So Standard Deviations podcast") for the inspiration.  In the podcast, Peng and Parker discuss a data science design challenge on getting to work on time.
 
 The title of this project is a play on the **Diary of a Wimpy Kid** book series.  Kat and her kids were
