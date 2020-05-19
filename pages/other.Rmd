@@ -13,13 +13,13 @@ library(wordcloud)
 library(ggrepel)
 ```
 
-# What else was on our minds?  
+## What else was on our minds?  
 
-In one homework assignment, students were asked to web scrape quotes from the [Brainy Quote](https://www.brainyquote.com/ "Brainy Quote") website.  What terms did we search?  What quotes did we find?
+In one homework assignment, students were asked to web scrape quotes from the [Brainy Quote](https://www.brainyquote.com/ "Brainy Quote"){:target="_blank"} website.  What terms did we search?  What quotes did we find?
 
 ### Searched terms
 
-```{r, message=FALSE, warning = FALSE, fig.width = 8, fig.height = 8}
+```{r, eval=FALSE, message=FALSE, warning = FALSE, fig.width = 8, fig.height = 8}
 Stat231_PS5_info <- read_excel("C:/Users/kcorreia/Dropbox (Amherst College)/Teaching/Spring 2020/Stat231/Calendar Project/Stat231_PS5_info.xlsx") 
 
 Stat231_PS5_info2 <- Stat231_PS5_info %>%
@@ -102,8 +102,8 @@ for (i in 1:length(search_vec)){
       ggtitle(str_to_title(search_vec[i])) + 
       geom_text_repel(data=quotes_subset
                         , aes(x = x, y = y
-                              , label=paste0('"', quote, '"')
-                              , color = colorch)
+                              , label=paste0('"', quote, '"'))
+                              , color = quotes_subset$colorch
                               #, box.padding = 2
                               , seed = i
                               , segment.alpha = 0) +

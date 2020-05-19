@@ -1,11 +1,14 @@
-## Where are we?
+---
+layout: misc
+title: Where are we?
+---
 
 ![](where_files/figure-markdown_strict/unnamed-chunk-1-1.png)![](where_files/figure-markdown_strict/unnamed-chunk-1-2.png)
 
 ### What's the temperature where we are? Using Google's BigQuery API
 
 In one homework assignment, students connected to [Google's BigQuery
-API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data")
+API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data"){:target="\_blank"}
 to access a public dataset containing weather information collected by
 NOAA. They identified a weather station in the state or country in which
 they were currently residing, and plotted the average temperature by
@@ -14,12 +17,9 @@ month in their location.
 Here is similar plot for the class, grouping by each of the different
 weather stations we searched.
 
-
 ![](where_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
-<p style="text-align:center">
-  
-Dear March - Come in  
+-&gt; Dear March - Come in  
 by Emily Dickinson
 
 Dear March - Come in -  
@@ -50,6 +50,4 @@ But trifles look so trivial
 As soon as you have come
 
 That blame is just as dear as Praise  
-And Praise as mere as Blame -
-
-</p>
+And Praise as mere as Blame - &lt;-

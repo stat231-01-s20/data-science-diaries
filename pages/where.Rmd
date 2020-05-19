@@ -58,7 +58,7 @@ ggplot() +
 
 ### What's the temperature where we are?  Using Google's BigQuery API
 
-In one homework assignment, students connected to [Google's BigQuery API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data") to access a public dataset containing weather information collected by NOAA.  They identified a weather station in the state or country in which they were currently residing, and plotted the average temperature by month in their location.  
+In one homework assignment, students connected to [Google's BigQuery API](https://cloud.google.com/bigquery/public-data "BigQuery Public Data"){:target="_blank"} to access a public dataset containing weather information collected by NOAA.  They identified a weather station in the state or country in which they were currently residing, and plotted the average temperature by month in their location.  
 
 Here is similar plot for the class, grouping by each of the different weather stations we searched. 
 
@@ -128,7 +128,7 @@ temperature_stations %>%
 ```
 
 
-Dear March - Come in  
+-> Dear March - Come in  
 by Emily Dickinson
 
 Dear March - Come in -  
@@ -159,4 +159,4 @@ But trifles look so trivial
 As soon as you have come  
   
 That blame is just as dear as Praise  
-And Praise as mere as Blame -  
+And Praise as mere as Blame -  <-
