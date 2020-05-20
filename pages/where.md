@@ -19,9 +19,8 @@ weather stations we searched.
 
 ![](where_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
-<center>
-Dear March - Come in  
-by Emily Dickinson
+  Dear March - Come in  
+  by Emily Dickinson
 
 Dear March - Come in -  
 How glad I am -  
