@@ -4,7 +4,7 @@ title: "An Average Day"
 author: "Kat"
 categories: diary
 tags: diary
-image: grace1.png
+image: grace1b.png
 ---
 
 ## More Data Art!
@@ -74,7 +74,9 @@ In this figure, another student compares what time they planned to go to bed ver
 
 Interestingly, the second student found no relationship between the total hours slept and either the day of the week or the time they went to bed.  Despite going to bed later than planned, the student did manage to average over 8 hours of sleep per night across the two weeks.  
  
-Sleep experts suggest most adults need between 7 and 9 hours of sleep each night.  8 is commonly considered the magic number.  That's 1/3 of each day, so if we're getting sufficient sleep, we'd expect it to take up a big chunk of our time pie.  Kudos to this student who was able to prioritize sleep:
+Sleep experts suggest most adults need between 7 and 9 hours of sleep each night.  8 is commonly considered the magic number.  That's 1/3 of each day, so if we're getting sufficient sleep, we'd expect it to take up a big chunk of our time pie.  Kudos to these students who were able to prioritize sleep:
+
+<img src="{{ site.github.url}}/assets/img/xander3.png">
 
 <img src="{{ site.github.url}}/assets/img/student1.png">
 
