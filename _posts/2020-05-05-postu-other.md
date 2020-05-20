@@ -32,7 +32,7 @@ Instead of using Google calendar to track their time, another student tracked th
 
 "I first looked at what apps/categories dominated my screentime as a whole. Not surprisingly, social networking was the clear winner. This means I spent a LOT of time messaging people or on some form of social media app. Instagram was probably the biggest time-sucker from this category. The only other two categories to occupy significant amounts of time were creativity and entertainment. Creativity honestly just meant TikTok, an app that is pretty similar to Instagram and doesn't actually require me to be creative. Suprisingly, I only used my phone for "productivity" for about 46 min the entire week. The overwhelming majority of things I used my phone for was almost completely pointless. I have gone on social media fasts before, but I think this study has shown me that if there ever was a time that I needed a fast from my phone, it's now."
 
-I think many of us are in the same boat!  How did the student's screen time use change as the week progressed?
+I think many of us can relate to that feeling!  How did the student's screen time use change as the week progressed?
 
 <img src="{{ site.github.url}}/assets/img/student3.png">
 
@@ -81,7 +81,7 @@ Sleep experts suggest most adults need between 7 and 9 hours of sleep each night
 
 <img src="{{ site.github.url}}/assets/img/student1.png">
 
-Note that "Zoom sessions" took up a very small slice of that pie -- but it's something that probably wouldn't have made it into the pie at all in a usual semester.
+Note that "Zoom sessions" took up a very small slice of those pies -- but it's something that probably wouldn't have made it into the pie at all in a usual semester.
 
 
 

@@ -19,8 +19,8 @@ weather stations we searched.
 
 ![](where_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
-  Dear March - Come in  
-  by Emily Dickinson
+Dear March - Come in  
+by Emily Dickinson
 
 Dear March - Come in -  
 How glad I am -  
@@ -51,4 +51,3 @@ As soon as you have come
 
 That blame is just as dear as Praise  
 And Praise as mere as Blame - 
-</center>
